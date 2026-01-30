@@ -5,6 +5,11 @@ import uuid
 
 app = FastAPI()   # ✅ app MUST be here first
 
+# Root route — add this to fix 404
+@app.get("/")
+def root():
+    return {"message": "App is running!"}
+
 
 # Health check
 @app.get("/api/healthz")
